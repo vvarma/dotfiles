@@ -1,4 +1,3 @@
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 set nocompatible              " required
 filetype off                  " required
 
@@ -11,7 +10,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'jnurmine/Zenburn'
 Plugin 'kien/ctrlp.vim'
@@ -20,7 +18,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-vinegar'
 Plugin 'sbdchd/neoformat'
 Plugin 'fatih/vim-go'
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -123,9 +121,6 @@ nnoremap <space> za
 
 
 set encoding=utf-8
-
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 set backspace=2 " make backspace work like most other apps
 
