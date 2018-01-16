@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/vinay/work/java/github.com/beam/sdks/java/io/redis/src/test/java/org/apache'
+let g:netrw_dirhist_2='/Users/vinay/work/java/github.com/beam/sdks/java/io/redis/src/test/java/org/apache/beam'
+let g:netrw_dirhist_3='/Users/vinay/work/java/github.com/beam/sdks/java/io/redis/src/test/java/org/apache/beam/sdk'
+let g:netrw_dirhist_4='/Users/vinay/work/java/github.com/beam/sdks/java/io/redis/src/test/java/org/apache/beam/sdk/io'
+let g:netrw_dirhist_5='/Users/vinay/work/java/github.com/beam/sdks/java/io/redis/src/test/java/org/apache/beam/sdk/io/redis'
+let g:netrw_dirhist_6='/Users/vinay/.eclim'
+let g:netrw_dirhist_7='/Users/vinay/work/java/github.com/carousell/carou-stream-external/target'
+let g:netrw_dirhist_8='/Users/vinay/work/java/github.com/carousell/carou-stream-external'
