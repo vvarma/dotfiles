@@ -1,9 +1,27 @@
 ## unplanned
 
+FEATURES:
+
+* **Debugger support!** Add integrated support for the
+  [`delve`](https://github.com/derekparker/delve) debugger. Use
+  `:GoInstallBinaries` to install `dlv`, and see `:help go-debug` to get
+  started.
+  [[GH-1390]](https://github.com/fatih/vim-go/pull/1390)
+
 IMPROVEMENTS:
 
 * Add descriptions to neosnippet abbrevations.
   [[GH-1639]](https://github.com/fatih/vim-go/pull/1639)
+* Show messages in the location list instead of the quickfix list when
+  `gometalinter` is run automatically when saving a buffer. Whether the
+  location list or quickfix list is used can be customized in the usual ways.
+  [[GH-1652]](https://github.com/fatih/vim-go/pull/1652)
+* Redraw the screen before executing blocking calls to gocode.
+  [[GH-1671]](https://github.com/fatih/vim-go/pull/1671)
+* Add `fe` -> `fmt.Errorf()` snippet for NeoSnippet and UltiSnippets.
+  [[GH-1677]](https://github.com/fatih/vim-go/pull/1677)
+* Use the async api when calling guru from neovim.
+  [[GH-1677]](https://github.com/fatih/vim-go/pull/1678)
 
 BUG FIXES:
 
@@ -30,6 +48,24 @@ BUG FIXES:
 * Make sure gometalinter is run on the given directories when arguments are
   given to :GoMetaLinter.
   [[GH-1640]](https://github.com/fatih/vim-go/pull/1640)
+* Do not run disabled linters with `gometalinter`.
+  [[GH-1648]](https://github.com/fatih/vim-go/pull/1648)
+* Do not prompt user to press enter after when `gometalinter` is called in
+  autosave mode.
+  [[GH-1654]](https://github.com/fatih/vim-go/pull/1654)
+* Fix potential race conditions when using vim8 jobs.
+  [[GH-1656]](https://github.com/fatih/vim-go/pull/1656)
+* Treat `'autowriteall'` the same as `'autowrite'` when determining whether to
+  write a buffer before calling some commands.
+  [[GH-1653]](https://github.com/fatih/vim-go/pull/1653)
+* Show the file location of test errors when the message is empty or begins
+  with a newline.
+  [[GH-1664]](https://github.com/fatih/vim-go/pull/1664)
+* Fix minisnip on Windows.
+  [[GH-1698]](https://github.com/fatih/vim-go/pull/1698)
+* Keep alternate filename when loading an autocreate template.
+  [[GH-1675]](https://github.com/fatih/vim-go/pull/1675)
+
 
 BACKWARDS INCOMPATIBILITIES:
 
@@ -39,7 +75,7 @@ BACKWARDS INCOMPATIBILITIES:
 
   * `go_highlight_methods`
 
-  in favor of the following settings and changes: 
+  in favor of the following settings and changes:
 
   * `go_highlight_functions`: This highlights now all function and method
     declarations (whereas previously it would also highlight function and
@@ -47,6 +83,8 @@ BACKWARDS INCOMPATIBILITIES:
   * `go_highlight_function_calls`: This higlights now all all function and
     method calls.
   [[GH-1557]](https://github.com/fatih/vim-go/pull/1557)
+* Rename g`g:go_metalinter_excludes` to `g:go_metalinter_disabled`.
+  [[GH-1648]](https://github.com/fatih/vim-go/pull/1648)
 
 ## 1.16 - (December 29, 2017)
 

@@ -1,3 +1,6 @@
+"Allow project spefic override
+set exrc
+set secure
 set nocompatible              " required
 filetype off                  " required
 
@@ -9,7 +12,6 @@ call vundle#begin()
 Plugin 'vim-airline/vim-airline'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'jnurmine/Zenburn'
 Plugin 'kien/ctrlp.vim'
@@ -148,11 +150,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Go stuff
-let g:go_fmt_command = "goimports"
+"let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "neosnippet"
 let g:go_bin_path = expand("~/.gotools")
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'python'] }
 let g:go_list_type = "quickfix"
 " syntax highlighting
 let g:go_highlight_functions = 1
@@ -211,10 +213,10 @@ let g:airline_right_alt_sep = '|'
 set splitbelow
 set splitright
 "neo format
-augroup fmt
-autocmd!
-autocmd BufWritePre * undojoin | Neoformat
-augroup END
+"augroup fmt
+"autocmd!
+"autocmd BufWritePre * undojoin | Neoformat
+"augroup END
 let g:neoformat_java_google = {
 	\ 'exe': 'java',
 	\ 'args': ['-jar /Users/vinay/work/java/github.com/google/google-java-format/core/target/google-java-format-1.6-SNAPSHOT-all-deps.jar -'],
@@ -222,6 +224,8 @@ let g:neoformat_java_google = {
 	\ }
 
 let g:neoformat_enabled_java = ['google']
+let g:neoformat_enabled_xml = ['tidy']
+let g:neoformat_enabled_proto = ['clangformat']
 "" Enable alignment
 " let g:neoformat_basic_format_align = 1
 "
@@ -230,3 +234,24 @@ let g:neoformat_enabled_java = ['google']
 "
 " " Enable trimmming of trailing whitespace
 " let g:neoformat_basic_format_trim = 1
+
+"" highlighter
+highlight MatchParen ctermbg=darkred
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
