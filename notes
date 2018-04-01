@@ -1,0 +1,12 @@
+#matplotlib
+use pyenv - pyenv activate mypenv..
+possible new setup using `env PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang" pyenv virtualenv 2.7.8 xxx` should also work
+
+
+#tensorflow
+
+to separate inference from train model - 
+1. add checkpoint
+2. create two separate graphs a) train and b) inference
+3. after training use checkpoint to initialize inference graph
+4. save inference graph.
