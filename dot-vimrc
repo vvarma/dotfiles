@@ -1,7 +1,9 @@
+if !has('nvim')
+    set nocompatible              " required
+endif
 "Allow project spefic override
 set exrc
 set secure
-set nocompatible              " required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -49,7 +51,7 @@ set tm=500
 if has("gui_macvim")
 	autocmd GUIEnter * set vb t_vb=
 endif
-
+au BufNewFile * set noeol
 " Highlight search results
 set hlsearch
 
@@ -77,9 +79,26 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
-" Paste as is.
-set paste
-
+""" FIxing paste nvim
+set cursorline
+set expandtab
+set modelines=0
+set shiftwidth=4
+set clipboard=unnamed
+set synmaxcol=250 " for those insanly long lines
+if !has('nvim')
+    set ttyscroll=11
+endif
+set encoding=utf-8
+set tabstop=4
+set wrap
+set number
+set nowritebackup
+set noswapfile
+set nobackup
+set hlsearch
+set ignorecase
+set smartcase
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -129,7 +148,10 @@ set backspace=2 " make backspace work like most other apps
 let python_highlight_all=1
 syntax on
 colorscheme zenburn
-"set clipboard=unnamed
+set clipboard=unnamed
+if has('nvim')
+	set clipboard+=unnamedplus
+endif
 " Flake stuf
 "autocmd BufWritePost *.py call Flake8()
 
@@ -213,10 +235,10 @@ let g:airline_right_alt_sep = '|'
 set splitbelow
 set splitright
 "neo format
-"augroup fmt
-"autocmd!
-"autocmd BufWritePre * undojoin | Neoformat
-"augroup END
+augroup fmt
+autocmd!
+autocmd BufWritePre * undojoin | Neoformat
+augroup END
 let g:neoformat_java_google = {
 	\ 'exe': 'java',
 	\ 'args': ['-jar /Users/vinay/work/java/github.com/google/google-java-format/core/target/google-java-format-1.6-SNAPSHOT-all-deps.jar -'],
