@@ -21,6 +21,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'sbdchd/neoformat'
 Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vimwiki/vimwiki'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -213,10 +214,10 @@ let g:airline_right_alt_sep = '|'
 set splitbelow
 set splitright
 "neo format
-"augroup fmt
-"autocmd!
-"autocmd BufWritePre * undojoin | Neoformat
-"augroup END
+augroup fmt
+autocmd!
+autocmd BufWritePre * undojoin | Neoformat
+augroup END
 let g:neoformat_java_google = {
 	\ 'exe': 'java',
 	\ 'args': ['-jar /Users/vinay/work/java/github.com/google/google-java-format/core/target/google-java-format-1.6-SNAPSHOT-all-deps.jar -'],
@@ -254,4 +255,7 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " bind \ (backward slash) to grep shortcut
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
+nnoremap <leader>\ :Ag<SPACE>
+" vimwiki/vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+set omnifunc=syntaxcomplete#Complete
