@@ -23,6 +23,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'sbdchd/neoformat'
 Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vimwiki/vimwiki'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -277,3 +278,5 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind \ (backward slash) to grep shortcut
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
+" vimwiki/vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]

@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/vinay/work/cpp/github.com/tensorflow'
-let g:netrw_dirhist_2='/Users/vinay/work/python/github.com/carousell/x-carousell'
-let g:netrw_dirhist_3='/Users/vinay/work/cpp/github.com/tensorflow'
-let g:netrw_dirhist_4='/Users/vinay/work/cpp/github.com/tensorflow/tensorflow/core/ops'
-let g:netrw_dirhist_5='/Users/vinay/work/cpp/github.com/tensorflow/tensorflow/core'
-let g:netrw_dirhist_6='/Users/vinay/work/cpp/github.com/tensorflow/tensorflow/core/kernels'
