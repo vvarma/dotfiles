@@ -22,8 +22,10 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-vinegar'
 Plugin 'sbdchd/neoformat'
 Plugin 'fatih/vim-go'
+Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vimwiki/vimwiki'
+Plugin 'SirVer/ultisnips'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -154,7 +156,7 @@ if has('nvim')
 	set clipboard+=unnamedplus
 endif
 " Flake stuf
-"autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
 
 set wildignore+=*.pyc
 set backspace=indent,eol,start
@@ -174,7 +176,6 @@ let g:syntastic_check_on_wq = 0
 
 " Go stuff
 "let g:go_fmt_command = "goimports"
-let g:go_snippet_engine = "neosnippet"
 let g:go_bin_path = expand("~/.gotools")
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'python'] }
@@ -279,5 +280,15 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap <leader>\ :Ag<SPACE>
 " vimwiki/vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-set omnifunc=syntaxcomplete#Complete
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},{'path': '~/Dropbox/wikihome/', 'syntax': 'markdown', 'ext': '.md'}]
+
+"YouCompleteMe
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_min_num_of_chars_for_completion = 10
+
+" UltiSnips triggering
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+" Enable mouse in iterm
+set mouse=a

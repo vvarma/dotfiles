@@ -1,0 +1,17 @@
+
+export DOTFILES="$HOME/work/misc/.dotfiles"
+export TMUXIFIER_LAYOUT_PATH="$DOTFILES/tmuxifier-layout"
+alias work='tmuxifier load-session work'
+#alias -g gogo=$GOPATH/src py=~/work/python
+
+func gocode() {
+SVC_PATH='~/work/golang/src/github.com/carousell' SVC=$1 tmuxifier w code
+}
+func javacode() {
+SVC_PATH='~/work/java/github.com' SVC=$1 tmuxifier w code
+}
+
+alias gogo='gocode'
+alias jaja='javacode'
+alias eclim='/Applications/Eclipse.app/Contents/Eclipse/eclimd'
+alias carolene='javacode carousell/carousolr'
