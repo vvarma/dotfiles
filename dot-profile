@@ -10,6 +10,9 @@ SVC_PATH='~/work/golang/src/github.com/carousell' SVC=$1 tmuxifier w code
 func javacode() {
 SVC_PATH='~/work/java/github.com' SVC=$1 tmuxifier w code
 }
+func bzcode(){
+SVC_PATH='~/work/bazel/github.com' SVC=$1 tmuxifier w code
+}
 
 alias gogo='gocode'
 alias jaja='javacode'
