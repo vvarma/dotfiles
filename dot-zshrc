@@ -1,0 +1,26 @@
+source $HOME/work/misc/.dotfiles/antigen/antigen.zsh
+antigen use oh-my-zsh
+
+antigen bundle git
+antigen bundle git-extras
+antigen bundle osx
+antigen bundle github
+antigen bundle common-aliases
+antigen bundle vi-mode
+antigen bundle mvn
+antigen bundle brew
+antigen bundle tmux
+antigen bundle pip
+antigen bundle python
+antigen bundle docker
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen theme robbyrussell
+
+antigen apply
+
+bindkey '^R' history-incremental-pattern-search-backward
+export KEYTIMEOUT=1
+
+source ~/.bash_profile
