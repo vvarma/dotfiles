@@ -1,4 +1,7 @@
-export DOTFILES="$HOME/work/misc/.dotfiles"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+export DOTFILES="$HOME/work/misc/dotfiles"
 export PATH="${DOTFILES}/tmuxifier/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$DOTFILES/tmuxifier-layout"
 alias work='tmuxifier load-session work'
@@ -17,3 +20,4 @@ alias gogo='gocode'
 alias jaja='javacode'
 alias eclim='/Applications/Eclipse.app/Contents/Eclipse/eclimd'
 alias carolene='javacode carousell/carousolr'
+

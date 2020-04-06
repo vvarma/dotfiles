@@ -15,7 +15,7 @@ run_cmd "vim"     # runs in active pane
 #run_cmd "date" 1  # runs in pane 1
 
 # Paste text
-send_keys "\ww"    # paste into active pane
+#send_keys "\ww"    # paste into active pane
 #send_keys "date" 1 # paste into pane 1
 
 # Set active pane.
