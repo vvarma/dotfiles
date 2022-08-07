@@ -20,13 +20,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-vinegar'
-Plugin 'sbdchd/neoformat'
-Plugin 'fatih/vim-go'
-Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vimwiki/vimwiki'
-Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'ycm-core/YouCompleteMe'
 
 
 " All of your Plugins must be added before the following line
@@ -67,7 +63,7 @@ set incsearch
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
-set expandtab
+set noexpandtab
 
 " Be smart when using tabs ;)
 set smarttab
@@ -176,19 +172,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" Go stuff
-"let g:go_fmt_command = "goimports"
-let g:go_bin_path = expand("~/.gotools")
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'python'] }
-let g:go_list_type = "quickfix"
-" syntax highlighting
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
 " This trigger takes advantage of the fact that the quickfix window can be
 " easily distinguished by its file-type, qf. The wincmd J command is
 " equivalent to the Ctrl+W, Shift+J shortcut telling Vim to move a window to
@@ -199,22 +182,6 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
-
-" Proto stuff
-augroup filetype
-au! BufRead,BufNewFile *.proto setfiletype proto
-augroup end
-" Eclim settings
-let g:EclimCompletionMethod = 'omnifunc'
-let java_comment_strings=1
-let java_highlight_java_lang_ids=1
-let java_mark_braces_in_parens_as_errors=1
-let java_highlight_all=1
-let java_highlight_debug=1
-let java_ignore_javadoc=1
-let java_highlight_java_lang_ids=1
-let java_highlight_functions="style"
-let java_minlines = 150
 
 "Cntrl-P stuff
 " Open file menu
@@ -238,28 +205,6 @@ let g:airline_right_alt_sep = '|'
 "Split stuff
 set splitbelow
 set splitright
-"neo format
-augroup fmt
-autocmd!
-autocmd BufWritePre * undojoin | Neoformat
-augroup END
-let g:neoformat_java_google = {
-	\ 'exe': 'java',
-	\ 'args': ['-jar /Users/vinay/work/java/github.com/google/google-java-format/core/target/google-java-format-1.6-SNAPSHOT-all-deps.jar -'],
-	\ 'stdin': 1,
-	\ }
-
-let g:neoformat_enabled_java = ['google']
-let g:neoformat_enabled_xml = ['tidy']
-let g:neoformat_enabled_proto = ['clangformat']
-"" Enable alignment
-" let g:neoformat_basic_format_align = 1
-"
-" " Enable tab to spaces conversion
-" let g:neoformat_basic_format_retab = 1
-"
-" " Enable trimmming of trailing whitespace
-" let g:neoformat_basic_format_trim = 1
 
 "" highlighter
 highlight MatchParen ctermbg=darkred
@@ -282,11 +227,7 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap <leader>\ :Ag<SPACE>
 " vimwiki/vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},{'path': '~/Dropbox/wikihome/', 'syntax': 'markdown', 'ext': '.md'}]
-
-"YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_min_num_of_chars_for_completion = 2
+let g:vimwiki_list = [{'path': '~/Dropbox/wikihome/'}]
 
 " UltiSnips triggering
 let g:UltiSnipsExpandTrigger = '<C-j>'
