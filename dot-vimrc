@@ -11,34 +11,38 @@ endif
 
 call plug#begin()
 
-" let Vundle manage Vundle, required
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tmhedberg/SimpylFold'
 Plug 'scrooloose/syntastic'
 Plug 'jnurmine/Zenburn'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-vinegar'
-Plug 'vimwiki/vimwiki'
-Plug 'honza/vim-snippets'
-Plug 'fatih/vim-go'
 Plug 'preservim/tagbar'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'fatih/vim-go'
+Plug 'vimwiki/vimwiki'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'cdelledonne/vim-cmake'
+Plug 'rust-lang/rust.vim'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
 
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
+"
+
 if executable('rust-analyzer')
   au User lsp_setup call lsp#register_server({
         \   'name': 'Rust Language Server',
@@ -220,6 +224,7 @@ set backspace=2 " make backspace work like most other apps
 let python_highlight_all=1
 syntax on
 colorscheme zenburn
+
 set clipboard=unnamed
 if has('nvim')
 	set clipboard+=unnamedplus
@@ -265,6 +270,12 @@ au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
+" Proto stuff
+augroup proto_stuff
+au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
+
+"
 "Cntrl-P stuff
 " Open file menu
 nnoremap <Leader>o :CtrlP<CR>
@@ -311,6 +322,7 @@ nnoremap <leader>\ :Ag<SPACE>
 " vimwiki/vimwiki
 let g:vimwiki_list = [{'path': '~/Dropbox/wikihome/'}]
 
+
 " UltiSnips triggering
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
@@ -321,3 +333,7 @@ let g:UltiSnipsSnippetsDir="~/.vim/nvrsnippets/"
 
 " Enable mouse in iterm
 set mouse=a
+
+" Omnifunc
+set omnifunc=syntaxcomplete#Complete
+
