@@ -111,14 +111,6 @@ set autoread
 " Plugins
 
 
-"" NERDTree configuration
-"nmap <Tab><Tab> :NERDTreeTabsToggle<CR>
-"
-"" reveal the current file in NERDTree
-"map <Leader>f :NERDTreeTabsFind<CR>
-"map <Leader>s :NERDTreeFocusToggle<CR>
-"let NERDTreeIgnore=[ '\.pyc$']
-
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -198,6 +190,10 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 " Proto stuff
 augroup proto_stuff
 au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
+
+augroup cc_stuff
+    au FileType cpp nmap gd :YcmCompleter GoToDefinition<CR>
 augroup end
 
 "
