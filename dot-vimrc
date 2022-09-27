@@ -140,7 +140,7 @@ set backspace=2 " make backspace work like most other apps
 
 let python_highlight_all=1
 syntax on
-colorscheme zenburn
+silent! colorscheme zenburn
 
 set clipboard=unnamed
 if has('nvim')
