@@ -245,12 +245,14 @@ let g:vimwiki_list = [{'path': '~/Dropbox/wikihome/'}]
 
 
 " UltiSnips triggering
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+let g:UltiSnipsExpandTrigger = ','
+"let g:UltiSnipsJumpForwardTrigger = '.'
+"let g:UltiSnipsJumpBackwardTrigger = '/'
 
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "nvrsnippets"]
-let g:UltiSnipsSnippetsDir="~/.vim/nvrsnippets/"
+let g:UltiSnipsEditSplit="vertical"
+
+"let g:UltiSnipsSnippetDirectories=["UltiSnips", "nvrsnippets"]
+"let g:UltiSnipsSnippetsDir="~/.vim/nvrsnippets/"
 
 " Enable mouse in iterm
 set mouse=a
