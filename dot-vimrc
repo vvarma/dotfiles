@@ -26,6 +26,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'cdelledonne/vim-cmake'
+Plug 'z0mbix/vim-shfmt'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -194,6 +195,8 @@ augroup end
 
 augroup cc_stuff
     au FileType cpp nmap gd :YcmCompleter GoToDefinition<CR>
+    au FileType cpp nmap ff :YcmCompleter Format<CR>
+    au FileType cpp nmap fi :YcmCompleter FixIt<CR>
 augroup end
 
 "
