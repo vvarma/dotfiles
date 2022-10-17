@@ -193,13 +193,13 @@ augroup proto_stuff
 au! BufRead,BufNewFile *.proto setfiletype proto
 augroup end
 
-augroup ycm_stuff
-    au FileType cpp nmap gd :YcmCompleter GoToDefinition<CR>
-    au FileType cpp nmap ff :YcmCompleter Format<CR>
-    au FileType cpp nmap fi :YcmCompleter FixIt<CR>
+augroup ycmd_stuff
     au FileType c nmap gd :YcmCompleter GoToDefinition<CR>
     au FileType c nmap ff :YcmCompleter Format<CR>
     au FileType c nmap fi :YcmCompleter FixIt<CR>
+    au FileType cpp nmap gd :YcmCompleter GoToDefinition<CR>
+    au FileType cpp nmap ff :YcmCompleter Format<CR>
+    au FileType cpp nmap fi :YcmCompleter FixIt<CR>
     au FileType rust nmap gd :YcmCompleter GoToDefinition<CR>
     au FileType rust nmap ff :YcmCompleter Format<CR>
     au FileType rust nmap fi :YcmCompleter FixIt<CR>
