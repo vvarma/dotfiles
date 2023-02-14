@@ -1,20 +1,14 @@
 local lsp = require("lsp-zero")
 
-lsp.preset("recommended")
+lsp.preset({
+    name="recommended",
+    call_servers="global",
+})
+lsp.setup_servers({'clangd', 'clangd'})
 
 lsp.ensure_installed({
 	'rust_analyzer',
-})
-
--- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { 'vim' }
-			}
-		}
-	}
+    'clangd',
 })
 
 local cmp = require('cmp')
