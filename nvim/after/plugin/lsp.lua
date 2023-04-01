@@ -12,9 +12,6 @@ lsp.ensure_installed({
 })
 lsp.configure('clangd', {
     force_setup = true,
-    on_attach = function()
-        print('hello clangd')
-    end,
 })
 
 local cmp = require('cmp')
@@ -42,12 +39,20 @@ lsp.set_preferences({
         info = 'I'
     }
 })
+local function quickfix()
+    vim.lsp.buf.code_action({
+        filter = function(a) return a.isPreferred end,
+        apply = true
+    })
+end
 
 lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
+
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "ff", function() vim.lsp.buf.format() end, opts)
+    vim.keymap.set("n", "fi", quickfix, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
