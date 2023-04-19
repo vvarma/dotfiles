@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
             }
         end
     }
+    use ('vimwiki/vimwiki')
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
