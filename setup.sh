@@ -1,5 +1,6 @@
 #!/bin/bash -ex
 DOTFILE_PATH=`pwd`
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 
 create_symlink(){
     src=$1
