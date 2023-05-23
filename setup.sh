@@ -16,6 +16,7 @@ create_symlink(){
     if [ -e "$dest" ]; then
         echo "$dest exists. Skipping."
     else
+        mkdir -p "$(dirname "$dest")"
         ln -s "$src" "$dest"
     fi
 }
