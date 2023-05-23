@@ -1,5 +1,8 @@
 #!/bin/bash -ex
 DOTFILE_PATH=$(pwd)
+if [ ! -d ~/.oh-my-zsh ]; then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 if [ ! -d ~/.zplug/ ]; then
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
