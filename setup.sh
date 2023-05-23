@@ -1,6 +1,11 @@
 #!/bin/bash -ex
-DOTFILE_PATH=`pwd`
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+DOTFILE_PATH=$(pwd)
+if [ ! -d ~/.zplug/ ]; then
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 create_symlink(){
     src=$1
@@ -8,13 +13,11 @@ create_symlink(){
     if [ -e "$dest" ]; then
         echo "$dest exists. Skipping."
     else
-        ln -s $src $dest
+        ln -s "$src" "$dest"
     fi
 }
-create_symlink $DOTFILE_PATH/dot-profile ~/.profile
-create_symlink $DOTFILE_PATH/dot-vimrc ~/.vimrc
-create_symlink $DOTFILE_PATH/dot-vim/ ~/.vim
-create_symlink $DOTFILE_PATH/dot-tmux-powerlinerc ~/.tmux-powerlinerc 
-create_symlink $DOTFILE_PATH/dot-tmux.conf ~/.tmux.conf
-create_symlink $DOTFILE_PATH/tmuxifier ~/.tmuxifier
-create_symlink $DOTFILE_PATH/dot-tmux ~/.tmux
+create_symlink "$DOTFILE_PATH"/dot-profile ~/.profile
+create_symlink "$DOTFILE_PATH"/dot-tmux.conf ~/.tmux.conf
+create_symlink "$DOTFILE_PATH"/dot-tmux ~/.tmux
+create_symlink "$DOTFILE_PATH/nvim" ~/.config/nvim
+create_symlink "$DOTFILE_PATH/dot-zshrc" ~/.zshrc
