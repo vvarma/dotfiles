@@ -9,6 +9,7 @@ fi
 if [ ! -d ~/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+mkdir -p ~/.config
 
 create_symlink(){
     src=$1
