@@ -23,5 +23,5 @@ create_symlink(){
 create_symlink "$DOTFILE_PATH"/dot-profile ~/.profile
 create_symlink "$DOTFILE_PATH"/dot-tmux.conf ~/.tmux.conf
 create_symlink "$DOTFILE_PATH"/dot-tmux ~/.tmux
-create_symlink "$DOTFILE_PATH/nvim" ~/.config/nvim
+create_symlink "$DOTFILE_PATH/dot-config" ~/.config/nvim
 create_symlink "$DOTFILE_PATH/dot-zshrc" ~/.zshrc
