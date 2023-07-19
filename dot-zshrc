@@ -135,3 +135,18 @@ if [ -f "$HOME/work/misc/tools/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/w
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/work/misc/tools/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/work/misc/tools/google-cloud-sdk/completion.zsh.inc"; fi
+
+function nvimvenv {
+  if [[ -e "$NVIM_VIRTUAL_ENV" && -f "$NVIM_VIRTUAL_ENV/bin/activate" ]]; then
+    source "$NVIM_VIRTUAL_ENV/bin/activate"
+    command nvim "$@"
+    deactivate
+  else
+    command nvim "$@"
+  fi
+}
+
+export NVIM_VIRTUAL_ENV="$HOME/.pyenv/versions/nvim"
+
+alias nvim=nvimvenv
+

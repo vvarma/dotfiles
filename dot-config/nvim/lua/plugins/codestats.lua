@@ -1,12 +1,9 @@
 return {
-  "https://gitlab.com/code-stats/code-stats-vim.git",
-
-  opts = {
-    defaults = {
-      codestats_api_key = os.getenv("CODESTATS_API_KEY"),
-    },
-  },
+  "vvarma/codestats.nvim",
   config = function()
-    print("configure codestats plugin")
+    require("codestats-nvim").setup({
+      token = os.getenv("CODESTATS_API_KEY"),
+    })
   end,
+  dependencies = { "nvim-lua/plenary.nvim" },
 }

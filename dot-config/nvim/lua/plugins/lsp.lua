@@ -6,7 +6,15 @@ return {
       clangd = { mason = false },
       bashls = {},
       rust_analyzer = {},
-      cmake = {},
+      cmake = {
+        settings = {
+          cmake = {
+            initializationOptions = {
+              buildDirectory = "local_build",
+            },
+          },
+        },
+      },
       gopls = {},
     },
   },
