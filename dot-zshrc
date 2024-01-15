@@ -112,17 +112,20 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
-#export PATH=~/go/bin:$PATH
-##
-#export PATH=$HOME/work/misc/scripts/gobin:$PATH
-##
-if command -v pyenv &> /dev/null
-then
-  export PYENV_ROOT="$HOME/.pyenv"
+GOPATH=$(go env GOPATH)
+
+if [ -n $GOPATH ]; then
+  export PATH="$GOPATH/bin:$PATH"
+fi
+
+PYENV_ROOT="$HOME/.pyenv"
+
+if [ -d $PYENV_ROOT ]; then
   command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
+
 eval "$(direnv hook zsh)"
 
 . ~/.profile
