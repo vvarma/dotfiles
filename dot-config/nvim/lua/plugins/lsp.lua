@@ -2,11 +2,14 @@ return {
   "neovim/nvim-lspconfig",
   init = function()
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
-    keys[#keys + 1] = { 'gd', vim.lsp.buf.definition }
+    keys[#keys + 1] = { "gd", vim.lsp.buf.definition }
   end,
   opts = {
     autoformat = false,
     servers = {
+      rust_analyzer = function()
+        return true
+      end,
       clangd = {
         root_dir = function(fname)
           return require("lspconfig.util").root_pattern(
