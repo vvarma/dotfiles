@@ -1,4 +1,14 @@
-{ pkgs, ... }: {
+{ 
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ... 
+}: {
+  imports = [
+    inputs.sops-nix.homeManagerModules.sops
+  ];
   # This is required information for home-manager to do its job
   home = {
     stateVersion = "23.11";
@@ -16,7 +26,7 @@
       pkgs.rustup
       pkgs.go
     ];
-    file.".config" = { source = ../dot-config; recursive = true; };
+    file.".config" = { source = ../../dot-config; recursive = true; };
   };
   xdg.enable = true;
   programs.home-manager.enable = true;
