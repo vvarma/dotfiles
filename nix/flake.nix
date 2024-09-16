@@ -15,6 +15,8 @@
         url = "github:Mic92/sops-nix";
         follows = "nixpkgs";
     };
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # In this context, outputs are mostly about getting home-manager what it
@@ -22,6 +24,7 @@
   outputs = { 
     self, 
     nixpkgs, 
+    nix-darwin,
     home-manager, 
     sops-nix, 
     ... 
@@ -46,15 +49,23 @@
       # Reusable home-manager modules you might want to export
       # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home-manager;
-      homeConfigurations = {
-        "vinayvarma" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          extraSpecialArgs = {inherit inputs outputs;};
-          modules = [ ./home-manager/home.nix ];
+      darwinConfigurations = {
+        "Vinays-MacBook-Air" = nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            ./darwin.nix
+            home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                users.vinayvarma = import ./home-manager/home.nix;
+              };
+              users.users.vinayvarma.home = "/Users/vinayvarma/";
+            }
+          ];
+          specialArgs = { inherit inputs; };
         };
+
       };
-
-
     };
 }
 

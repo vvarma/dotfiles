@@ -7,13 +7,11 @@
   ... 
 }: {
   imports = [
-    inputs.sops-nix.homeManagerModules.sops
+    #inputs.sops-nix.homeManagerModules.sops
   ];
   # This is required information for home-manager to do its job
   home = {
     stateVersion = "23.11";
-    username = "vinayvarma";
-    homeDirectory = "/Users/vinayvarma";
     packages = [
       pkgs.git
       pkgs.direnv
@@ -21,7 +19,6 @@
       pkgs.neovim
       pkgs.fzf
       pkgs.lazygit
-      pkgs.alacritty
       pkgs.zellij
       pkgs.rustup
       pkgs.go
@@ -30,6 +27,7 @@
   };
   xdg.enable = true;
   programs.home-manager.enable = true;
+  programs.firefox.enable = false;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
