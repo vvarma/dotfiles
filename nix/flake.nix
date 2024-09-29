@@ -1,71 +1,53 @@
 {
-  description = "dotfiles";
+  description = "vvarma";
 
-  # inputs are other flakes you use within your own flake, dependencies
-  # if you will
   inputs = {
-    # unstable has the 'freshest' packages you will find, even the AUR
-    # doesn't do as good as this, and it's all precompiled.
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix = {
-        url = "github:Mic92/sops-nix";
-        follows = "nixpkgs";
+
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    firefox-darwin = {
+      url = "github:bandithedoge/nixpkgs-firefox-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  # In this context, outputs are mostly about getting home-manager what it
-  # needs since it will be the one using the flake
-  outputs = { 
-    self, 
-    nixpkgs, 
-    nix-darwin,
-    home-manager, 
-    sops-nix, 
-    ... 
-  } @ inputs: let 
-    inherit (self) outputs;
-    systems = [
-      "aarch64-darwin"
-      "aarch64-linux"
-      "x86_64-linux"
-    ];
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-
-    in {
-      # Your custom legacyPackages
-      # # Accessible through 'nix build', 'nix shell', etc
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      # Formatter for your nix files, available through 'nix fmt'
-      # Other options beside 'alejandra' include 'nixpkgs-fmt'
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-      # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays {inherit inputs;};
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
-      homeManagerModules = import ./modules/home-manager;
+  outputs = inputs:
+    let globals = { user = "vinayvarma"; }; in rec {
       darwinConfigurations = {
-        "Vinays-MacBook-Air" = nix-darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          modules = [
-            ./darwin.nix
-            home-manager.darwinModules.home-manager
-            {
-              home-manager = {
-                users.vinayvarma = import ./home-manager/home.nix;
-              };
-              users.users.vinayvarma.home = "/Users/vinayvarma/";
-            }
-          ];
-          specialArgs = { inherit inputs; };
-        };
+        Vinays-MacBook-Air = import ./hosts/Vinays-MacBook-Air { inherit inputs globals; };
+      };
 
+      homeConfigurations = {
+        Vinays-MacBook-Air = darwinConfigurations.Vinays-MacBook-Air.config.home-manager.users.${globals.user}.home;
       };
     };
 }
-
