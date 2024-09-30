@@ -19,10 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    firefox-darwin = {
-      url = "github:bandithedoge/nixpkgs-firefox-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #firefox-darwin = {
+    #  url = "github:bandithedoge/nixpkgs-firefox-darwin";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     mac-app-util = {
       url = "github:hraban/mac-app-util";
@@ -44,10 +44,12 @@
     let globals = { user = "vinayvarma"; }; in rec {
       darwinConfigurations = {
         Vinays-MacBook-Air = import ./hosts/Vinays-MacBook-Air { inherit inputs globals; };
+        Vinays-MacBook-Pro = import ./hosts/Vinays-MacBook-Pro { inherit inputs globals; };
       };
 
       homeConfigurations = {
         Vinays-MacBook-Air = darwinConfigurations.Vinays-MacBook-Air.config.home-manager.users.${globals.user}.home;
+        Vinays-MacBook-Pro = darwinConfigurations.Vinays-MacBook-Pro.config.home-manager.users.${globals.user}.home;
       };
     };
 }

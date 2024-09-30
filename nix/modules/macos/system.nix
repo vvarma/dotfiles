@@ -20,6 +20,7 @@
       dock = {
         enable-spring-load-actions-on-all-items = true;
         mouse-over-hilite-stack = true;
+        autohide = true;
 
         mineffect = "genie";
         orientation = "left";
@@ -27,7 +28,6 @@
         tilesize = 44;
 
         persistent-apps = [
-          "${pkgs.firefox-bin}/Applications/Firefox.app"
           "${pkgs.alacritty}/Applications/Alacritty.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
         ];

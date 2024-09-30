@@ -7,9 +7,6 @@ return {
   opts = {
     autoformat = false,
     servers = {
-      rust_analyzer = function()
-        return true
-      end,
       clangd = {
         root_dir = function(fname)
           return require("lspconfig.util").root_pattern(

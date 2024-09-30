@@ -6,10 +6,7 @@
     ./bottom.nix
     ./direnv.nix
     ./docker.nix
-    #./firefox.nix
     ./fonts.nix
-    #./git.nix
-    #./gpg.nix
     ./gtk.nix
     ./nix-index.nix
     ./nix.nix

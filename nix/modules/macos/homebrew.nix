@@ -20,6 +20,18 @@
       "dmenu-mac"
       "docker"
       "firefox"
+      "slack"
+      "1password"
+    ];
+    brews = [
+      "docker-compose"
+      "bazelisk"
+      "git-lfs"
+      "aria2"
+      {
+        name = "xcodes";
+        link = true;
+      }
     ];
   };
 }
