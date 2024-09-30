@@ -16,10 +16,10 @@
     };
     casks = [
       "bluesnooze"
-      "caffeine"
       "clipy"
       "dmenu-mac"
       "docker"
+      "firefox"
     ];
   };
 }
