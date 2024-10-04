@@ -33,6 +33,7 @@
 
     alacritty
     bfs
+    cassandra
     delta
     dfrs
     doggo
@@ -43,10 +44,10 @@
     fd
     file
     fzf
-    gcc
     git
     glib
     go
+    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     jq
     lazygit
     neovim

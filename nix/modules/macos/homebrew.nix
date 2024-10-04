@@ -24,10 +24,15 @@
       "1password"
     ];
     brews = [
+      "process-compose"
       "docker-compose"
       "bazelisk"
       "git-lfs"
       "aria2"
+      "libiconv"
+      "protobuf"
+      "pkg-config"
+      "librdkafka"
       {
         name = "xcodes";
         link = true;
