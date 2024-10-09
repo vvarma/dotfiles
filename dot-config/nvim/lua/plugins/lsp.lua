@@ -8,6 +8,7 @@ return {
     autoformat = false,
     servers = {
       clangd = {
+        filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
         root_dir = function(fname)
           return require("lspconfig.util").root_pattern(
             "Makefile",

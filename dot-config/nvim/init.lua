@@ -4,4 +4,3 @@ require("config.lazy")
 vim.opt.clipboard = "unnamedplus"
 
 vim.g.python3_host_prog = "$HOME/.pyenv/versions/nvim/bin/python"
-vim.lsp.set_log_level("debug")
