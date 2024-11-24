@@ -53,6 +53,7 @@
     neovim
     obsidian
     pass
+    nodejs_22
     progress
     pwgen
     pyenv
@@ -63,6 +64,7 @@
     socat
     sops
     sqlite
+    taplo
     tree
     unrar
     unzip
