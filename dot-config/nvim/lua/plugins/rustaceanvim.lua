@@ -14,6 +14,11 @@ return {
           vim.cmd.RustLsp("debuggables")
         end, { desc = "Rust Debuggables", buffer = bufnr })
       end,
+      root_dir = function(fname)
+        return require("lspconfig.util").root_pattern("Cargo.toml")(fname)
+          or require("lspconfig.util").root_pattern("rust-analyzer.json")(fname)
+          or require("lspconfig.util").find_git_ancestor(fname)
+      end,
       default_settings = {
         -- rust-analyzer language server configuration
         ["rust-analyzer"] = {

@@ -19,7 +19,9 @@
     useUserPackages = true;
     users.${config.user}.home = {
       stateVersion = "24.05";
-      file.".config" = { source = ../../../dot-config; recursive = true; };
+      ##file.".config" = { source = ../../../dot-config; recursive = true; };
+      file.".config/zellij" = { source = ../../../dot-config/zellij; recursive = true; };
+      file.".config/alacritty" = { source = ../../../dot-config/alacritty; recursive = true; };
     };
   };
 
