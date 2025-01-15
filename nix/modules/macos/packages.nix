@@ -2,12 +2,9 @@
   home-manager.users.${config.user}.home.packages = with pkgs; [
     (python3.withPackages (ps: with ps; [
       pyyaml
-      # pynacl
-      # pylint
-      # tldextract
-      # isort
-      # black
-      # pip
+      pip
+      pynvim
+      neovim
     ]))
 
     bash
