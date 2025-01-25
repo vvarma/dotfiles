@@ -51,6 +51,7 @@
     jq
     lazygit
     neovim
+    process-compose
     obsidian
     pass
     nodejs_22

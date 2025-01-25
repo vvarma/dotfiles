@@ -24,7 +24,6 @@
       "1password"
     ];
     brews = [
-      "process-compose"
       "docker-compose"
       "bazelisk"
       "git-lfs"
