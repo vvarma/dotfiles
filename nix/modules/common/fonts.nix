@@ -12,8 +12,8 @@
       font-awesome
       input-fonts
       joypixels
-      nerdfonts
       open-sans
+      nerd-fonts.hack
     ];
   };
 }

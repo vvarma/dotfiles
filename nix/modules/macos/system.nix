@@ -28,7 +28,9 @@
         tilesize = 44;
 
         persistent-apps = [
-          "${pkgs.alacritty}/Applications/Alacritty.app"
+          "${pkgs.firefox-unwrapped}/Applications/Firefox.app"
+          "/Applications/Slack.app/"
+          "${pkgs.alacritty}/Applications/Alacritty.app/"
           "${pkgs.obsidian}/Applications/Obsidian.app"
         ];
       };
@@ -59,5 +61,6 @@
       };
     };
   };
+
 }
 

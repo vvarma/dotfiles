@@ -15,27 +15,12 @@
       upgrade = true;
     };
     casks = [
-      "bluesnooze"
-      "clipy"
       "dmenu-mac"
-      "docker"
       "firefox"
       "slack"
       "1password"
     ];
     brews = [
-      "docker-compose"
-      "bazelisk"
-      "git-lfs"
-      "aria2"
-      "libiconv"
-      "protobuf"
-      "pkg-config"
-      "librdkafka"
-      {
-        name = "xcodes";
-        link = true;
-      }
     ];
   };
 }
