@@ -2,11 +2,10 @@
   imports = [
     ./atuin.nix
     ./base-packages.nix
-    ./bat.nix
-    ./bottom.nix
     ./direnv.nix
     ./docker.nix
     ./fonts.nix
+    ./firefox.nix
     ./gtk.nix
     ./nix-index.nix
     ./nix.nix

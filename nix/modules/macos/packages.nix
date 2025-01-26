@@ -30,7 +30,7 @@
     kubectl
     kubectx
 
-
+    podman
     alacritty
     bfs
     cassandra
