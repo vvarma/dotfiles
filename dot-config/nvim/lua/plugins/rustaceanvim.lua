@@ -1,7 +1,7 @@
 return {
-  --"mrcjkb/rustaceanvim",
-  dir = "~/work/vvarma/lazy-plugins/rustaceanvim/",
-  version = "^4", -- Recommended
+  "mrcjkb/rustaceanvim",
+  -- dir = "~/work/vvarma/lazy-plugins/rustaceanvim/",
+  version = false, -- Recommended
   ft = { "rust" },
   opts = {
     server = {
