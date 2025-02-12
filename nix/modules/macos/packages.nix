@@ -29,8 +29,11 @@
     kubernetes-helm
     kubectl
     kubectx
+    k9s
+    brotli
 
     podman
+    docker
     alacritty
     bfs
     cassandra

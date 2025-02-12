@@ -11,7 +11,7 @@
       '';
 
       extensions = with firefox-addons; [
-        clearurls
+        #clearurls
         container-tabs-sidebar
         darkreader
         ff2mpv

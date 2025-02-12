@@ -15,12 +15,7 @@
       upgrade = true;
     };
     casks = [
-      "bluesnooze"
-      "clipy"
-      "dmenu-mac"
       "docker"
-      "firefox"
-      "slack"
       "1password"
     ];
     brews = [
