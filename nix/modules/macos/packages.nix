@@ -32,11 +32,12 @@
     k9s
     brotli
 
+    graphviz
+    postgresql_17
     podman
     docker
     alacritty
     bfs
-    cassandra
     delta
     dfrs
     doggo
@@ -55,7 +56,6 @@
     lazygit
     neovim
     process-compose
-    obsidian
     pass
     nodejs_22
     progress

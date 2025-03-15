@@ -31,7 +31,6 @@
           "${pkgs.firefox-unwrapped}/Applications/Firefox.app"
           "/Applications/Slack.app/"
           "${pkgs.alacritty}/Applications/Alacritty.app/"
-          "${pkgs.obsidian}/Applications/Obsidian.app"
         ];
       };
 

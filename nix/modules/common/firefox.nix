@@ -94,7 +94,7 @@
         "network.protocol-handler.external.mailto" = false;
         "network.proxy.socks_remote_dns" = true;
         "permissions.delegation.enabled" = false;
-        "privacy.clearOnShutdown.cache" = true;
+        "privacy.clearOnShutdown.cache" = false;
         "privacy.clearOnShutdown.cookies" = false;
         "privacy.clearOnShutdown.downloads" = true;
         "privacy.clearOnShutdown.formdata" = true;
@@ -102,7 +102,7 @@
         "privacy.clearOnShutdown.sessions" = false;
         "privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage" = false;
         "privacy.partition.always_partition_third_party_non_cookie_storage" = true;
-        "privacy.sanitize.sanitizeOnShutdown" = true;
+        "privacy.sanitize.sanitizeOnShutdown" = false;
         "privacy.trackingprotection.enabled" = true;
         "privacy.userContext.enabled" = true;
         "privacy.userContext.ui.enabled" = true;
@@ -118,7 +118,7 @@
         "services.sync.engine.passwords" = false;
         "signon.autofillForms" = false;
         "signon.formlessCapture.enabled" = false;
-        "signon.rememberSignons" = false;
+        "signon.rememberSignons" = true;
         "toolkit.coverage.endpoint.base" = "";
         "toolkit.coverage.opt-out" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

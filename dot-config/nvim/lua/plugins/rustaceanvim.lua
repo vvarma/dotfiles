@@ -6,7 +6,7 @@ return {
   opts = {
     server = {
       load_vscode_settings = false,
-      on_attach = function(_, bufnr)
+      on_attach = function(client, bufnr)
         vim.keymap.set("n", "<leader>cR", function()
           vim.cmd.RustLsp("codeAction")
         end, { desc = "Code Action", buffer = bufnr })
