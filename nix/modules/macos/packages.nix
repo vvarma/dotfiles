@@ -73,7 +73,6 @@
     unrar
     unzip
     w3m
-    wireguard-tools
     zellij
     zip
     zsh
