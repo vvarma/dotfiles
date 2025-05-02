@@ -17,8 +17,10 @@
     casks = [
       "docker"
       "1password"
+      "firefox"
     ];
     brews = [
+      "docker-credential-helper",
       "docker-compose"
       "bazelisk"
       "git-lfs"
